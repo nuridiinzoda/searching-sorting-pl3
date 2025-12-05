@@ -24,7 +24,7 @@ public class Main {
                 case "2" -> binarySearch(sc);
                 case "3" -> n2Sorting();
                 case "4" -> nLogNSorting();
-                case "5" -> System.out.println("Choice 5 not implemented.");
+                case "5" -> sortingPerformance();
                 case "q", "Q" -> System.out.println("Exiting...");
                 default -> System.out.println("Invalid choice.");
             }
@@ -106,5 +106,11 @@ public class Main {
     for (int x : arr) System.out.print(x + " ");
     System.out.println("\n");
 }
+
+
+private static void sortingPerformance() {
+    PerfRunner.runPerformanceTest();
+}
+
 
 }
