@@ -23,7 +23,7 @@ public class Main {
                 case "1" -> linearSearch(sc);
                 case "2" -> binarySearch(sc);
                 case "3" -> n2Sorting();
-                case "4" -> System.out.println("Choice 4 not implemented.");
+                case "4" -> nLogNSorting();
                 case "5" -> System.out.println("Choice 5 not implemented.");
                 case "q", "Q" -> System.out.println("Exiting...");
                 default -> System.out.println("Invalid choice.");
@@ -86,4 +86,25 @@ public class Main {
         for (int x : arr) System.out.print(x + " ");
         System.out.println("\n");
     }
+
+
+    private static void nLogNSorting() {
+    int[] arr = new int[10];
+    Random rand = new Random();
+
+    for (int i = 0; i < arr.length; i++) {
+        arr[i] = rand.nextInt(201) - 100; // random values from -100 to 100
+    }
+
+    System.out.println("\nData set before quicksort:");
+    for (int x : arr) System.out.print(x + " ");
+    System.out.println();
+
+    Sorts.quickSort(arr);
+
+    System.out.println("\nData set after quicksort:");
+    for (int x : arr) System.out.print(x + " ");
+    System.out.println("\n");
+}
+
 }
