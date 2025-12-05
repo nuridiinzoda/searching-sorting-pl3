@@ -21,7 +21,7 @@ public class Main {
             switch (choice) {
                 case "1" -> linearSearch(sc);
                 case "2" -> binarySearch(sc);
-                case "3" -> System.out.println("Choice 3 not implemented.");
+                case "3" -> n2Sorting();
                 case "4" -> System.out.println("Choice 4 not implemented.");
                 case "5" -> System.out.println("Choice 5 not implemented.");
                 case "q", "Q" -> System.out.println("Exiting...");
@@ -66,4 +66,24 @@ public class Main {
 
         System.out.println(found ? "\nFound\n" : "\nNot found\n");
     }
+
+    private static void n2Sorting() {
+    int[] arr = new int[10];
+    java.util.Random rand = new java.util.Random();
+
+    for (int i = 0; i < arr.length; i++) {
+        arr[i] = rand.nextInt(201) - 100; // random values from -100 to 100
+    }
+
+    System.out.println("\nData set before insertion sorting:");
+    for (int x : arr) System.out.print(x + " ");
+    System.out.println();
+
+    project.Sorts.insertionSort(arr);
+
+    System.out.println("\nData set after insertion sorting:");
+    for (int x : arr) System.out.print(x + " ");
+    System.out.println("\n");
+}
+
 }
