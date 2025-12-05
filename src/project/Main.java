@@ -11,8 +11,8 @@ public class Main {
             System.out.println("\nMenu of Searching and Sorting Testbed.\n");
             System.out.println("1)  Linear searching");
             System.out.println("2)  Binary searching");
-            System.out.println("3)  n^2 type of sorting");
-            System.out.println("4)  n * log(n) type of sorting");
+            System.out.println("3)  0n^2 type of sorting");
+            System.out.println("4)  0n * log(n) type of sorting");
             System.out.println("5)  Sorting performance");
             System.out.println("\nq/Q) Quit\n");
             System.out.print("Your choice: ");
@@ -20,10 +20,10 @@ public class Main {
 
             switch (choice) {
                 case "1" -> linearSearch(sc);
-                case "2" -> System.out.println("Binary searching not yet implemented.");
-                case "3" -> System.out.println("n^2 type of sorting not yet implemented.");
-                case "4" -> System.out.println("n * log(n) type of sorting not yet implemented.");
-                case "5" -> System.out.println("Sorting performance not yet implemented.");
+                case "2" -> binarySearch(sc);
+                case "3" -> System.out.println("Choice 3 not implemented.");
+                case "4" -> System.out.println("Choice 4 not implemented.");
+                case "5" -> System.out.println("Choice 5 not implemented.");
                 case "q", "Q" -> System.out.println("Exiting...");
                 default -> System.out.println("Invalid choice.");
             }
@@ -41,6 +41,29 @@ public class Main {
                 break;
             }
         }
+        System.out.println(found ? "\nFound\n" : "\nNot found\n");
+    }
+
+    private static void binarySearch(Scanner sc) {
+        int[] arr = {0,1,2,3,4,5,6,7,8,9};
+        System.out.print("In the list are values 0, ..., 9; which value would you like to search with binary search? ");
+        int val = Integer.parseInt(sc.nextLine().trim());
+
+        int low = 0, high = arr.length - 1;
+        boolean found = false;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (arr[mid] == val) {
+                found = true;
+                break;
+            } else if (arr[mid] < val) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+
         System.out.println(found ? "\nFound\n" : "\nNot found\n");
     }
 }
