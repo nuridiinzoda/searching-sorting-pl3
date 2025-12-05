@@ -5,34 +5,35 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int choice;
+        String choice;
+
         do {
-            System.out.println("\nMenu:");
-            System.out.println("1. Linear Search");
-            System.out.println("2. Binary Search");
-            System.out.println("3. O(n^2) Sorting");
-            System.out.println("4. O(n log n) Sorting");
-            System.out.println("5. Sorting Performance");
-            System.out.println("6. Quit");
-            System.out.print("Enter choice: ");
-            choice = sc.nextInt();
+            System.out.println("\nMenu of Searching and Sorting Testbed.\n");
+            System.out.println("1)  Linear searching");
+            System.out.println("2)  Binary searching");
+            System.out.println("3)  n^2 type of sorting");
+            System.out.println("4)  n * log(n) type of sorting");
+            System.out.println("5)  Sorting performance");
+            System.out.println("\nq/Q) Quit\n");
+            System.out.print("Your choice: ");
+            choice = sc.nextLine().trim();
 
             switch (choice) {
-                case 1 -> linearSearch(sc);
-                case 2 -> System.out.println("Choice 2 not implemented.");
-                case 3 -> System.out.println("Choice 3 not implemented.");
-                case 4 -> System.out.println("Choice 4 not implemented.");
-                case 5 -> System.out.println("Choice 5 not implemented.");
-                case 6 -> System.out.println("Exiting...");
+                case "1" -> linearSearch(sc);
+                case "2" -> System.out.println("Binary searching not yet implemented.");
+                case "3" -> System.out.println("n^2 type of sorting not yet implemented.");
+                case "4" -> System.out.println("n * log(n) type of sorting not yet implemented.");
+                case "5" -> System.out.println("Sorting performance not yet implemented.");
+                case "q", "Q" -> System.out.println("Exiting...");
                 default -> System.out.println("Invalid choice.");
             }
-        } while (choice != 6);
+        } while (!choice.equalsIgnoreCase("q"));
     }
 
     private static void linearSearch(Scanner sc) {
         int[] arr = {0,1,2,3,4,5,6,7,8,9};
-        System.out.print("Enter value to search: ");
-        int val = sc.nextInt();
+        System.out.print("In the list are values 0, ..., 9; which value would you like to search with linear search? ");
+        int val = Integer.parseInt(sc.nextLine().trim());
         boolean found = false;
         for (int x : arr) {
             if (x == val) {
@@ -40,6 +41,6 @@ public class Main {
                 break;
             }
         }
-        System.out.println(found ? "Value found!" : "Value not found.");
+        System.out.println(found ? "\nFound\n" : "\nNot found\n");
     }
 }
