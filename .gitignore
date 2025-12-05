@@ -1,0 +1,14 @@
+# macOS system files
+.DS_Store
+
+# IntelliJ / VS Code project files
+.idea/
+.vscode/
+
+# Java build outputs
+out/
+srcout/
+*.class
+
+# Logs
+*.log
