@@ -1,6 +1,7 @@
 package project;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,8 +12,8 @@ public class Main {
             System.out.println("\nMenu of Searching and Sorting Testbed.\n");
             System.out.println("1)  Linear searching");
             System.out.println("2)  Binary searching");
-            System.out.println("3)  0n^2 type of sorting");
-            System.out.println("4)  0n * log(n) type of sorting");
+            System.out.println("3)  O(n^2) type of sorting");
+            System.out.println("4)  O(n * log(n) type of sorting");
             System.out.println("5)  Sorting performance");
             System.out.println("\nq/Q) Quit\n");
             System.out.print("Your choice: ");
@@ -68,22 +69,21 @@ public class Main {
     }
 
     private static void n2Sorting() {
-    int[] arr = new int[10];
-    java.util.Random rand = new java.util.Random();
+        int[] arr = new int[10];
+        Random rand = new Random();
 
-    for (int i = 0; i < arr.length; i++) {
-        arr[i] = rand.nextInt(201) - 100; // random values from -100 to 100
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = rand.nextInt(201) - 100; // random values from -100 to 100
+        }
+
+        System.out.println("\nData set before insertion sorting:");
+        for (int x : arr) System.out.print(x + " ");
+        System.out.println();
+
+        Sorts.insertionSort(arr);
+
+        System.out.println("\nData set after insertion sorting:");
+        for (int x : arr) System.out.print(x + " ");
+        System.out.println("\n");
     }
-
-    System.out.println("\nData set before insertion sorting:");
-    for (int x : arr) System.out.print(x + " ");
-    System.out.println();
-
-    project.Sorts.insertionSort(arr);
-
-    System.out.println("\nData set after insertion sorting:");
-    for (int x : arr) System.out.print(x + " ");
-    System.out.println("\n");
-}
-
 }
